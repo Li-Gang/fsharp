@@ -4,3 +4,4 @@ slidepricersupport-jp@nomura.com
 また、新規依頼で恐縮ですが、JSPT-80のうちの変更点①をAutomaticEarlyRedemptionDatesにも反映していただけますでしょうか。（変更点②は対象外）改めて検証したところ必要でした。申し訳ございません。
 
 :System.IO.FileNotFoundException CLR20r3
+mscorlib
