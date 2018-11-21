@@ -11,3 +11,20 @@ https://www.bpo.jp/mpi/login/login.php
 https://stackoverflow.com/questions/6333380/how-do-i-run-until-this-variable-changes-when-debugging
 http://o.oz-code.com/features#whenSet
 https://stackoverflow.com/questions/654696/how-to-debug-external-class-library-projects-in-visual-studio
+
+ありがとうございます。何点か気になる点をコメントさせてください。
+1.	DB上、NULLを”*”と同様に扱うようにはできませんか？定義シート同様のUIを残したいのであれば、Excel上の表示やInsertするときは”*”として、内部のロジックでNULLに変換すればよいかと。
+2.	1.のようにNULLで扱えば、以下のようにすることでUDF_IDENTIFY_SCHEMEのWhileのロジックなしで、かつ”*”などのハードコードもせずに一回のSELECTで処理できるはずです。条件部分にIndexも貼るとより高速になると思います。
+/*1行目のスキームを取得して返すようにする*/
+SELECT
+*
+FROM M_SCHEME m
+WHERE
+ISNULL(m.ProdType, @ProdType) = @ProdType AND
+ISNULL(m.IssCcy, @IssCcy) = @IssCcy AND
+/*以下ANDでInputの条件をつなげる*/
+ORDER BY m.SN
+
+3.	 個人的には、IsActiveフラグなど含めるようにしてSoft Deleteができるようにしたいです。
+4.	今回スキーム名だけを特定するようになっていますが、ご留意Noを決定するロジックは別にあるんでしたっけ？この際なので、こちらも一緒にまとめてしまいませんか？
+5.	これはどちらかというと気になる点というより純粋なコメントですが、あまりExcelツールは増やしたくないのでVersion管理から表で操作できるようにしたいです。将来的にC#でも扱いやすいような設計になっているといいと思います。
