@@ -1,0 +1,48 @@
+
+	使っているライブラリ：
+	AutoMapper　⇒　必要に応じたEntityクラスとViewModelクラスの自動マッピング。例：BranchInfo ⇔　BranchInfoViewModel
+	ClosedXML　⇒　Excelファイル出力
+	Costura　⇒　依存しているdllを一つのexeにpackageするライブラリ
+	Dapper　⇒　AccessデータベースをアクセスするためのORM framework
+	EntityFramework　⇒　SqlServerデータベースをアクセスするためのORM framework
+	OpenXml　⇒　ClosedXMLが依存するライブラリ
+	Dragablz　⇒　タブコントロールの機能を提供するUIライブラリ
+	FastMember　⇒　ClosedXMLが依存するライブラリ
+	MaterialDesignThemes ⇒　MaterialDesignを使っているUIライブラリ
+	MahApps.Metro　⇒　MaterialDesignThemesだけだと、Windowの枠がOSデフォルトのままなので、Windowの枠もMaterialDesignになるため使っているライブラリ。なくしても、大したことにはなりません
+	MvvmDialogs　⇒　出力先のフォルダを選択するダイアログをMVVMパターンで書けるためのライブラリ
+	Prism　⇒　MVVMパターンをサポートするメインのライブラリ
+	Unity　⇒　Dependency Injectionするためのライブラリ
+	使っている開発手法：
+	Domain Driven Design（Application層を省略しています）
+	MVVMパターン
+	Database First
+	Unit of Workパターン
+	Repositoryパターン
+	Dependency Injection
+	フォルダ構造：
+	DAL – データアクセス仕方の具体実装クラスが入っています。主にはRepositoryの実装クラスです。Domain層に依存しています
+	Branch – 部店データのアクセスを実装したクラスが入っています
+	CashFlow – キャッシュフローデータのアクセスを実装したクラスが入っています
+	Customer – 顧客データのアクセスを実装したクラスが入っています
+	Domain – 純粋なビジネスロジックを実装したクラスが入っています。IRepositoryやIUnitOfWorkなど他の層に実装してもらうインタフェースも入っています。他の層に依存していません
+	Branch – 部店周りのビジネスロジックを実装したクラス・インタフェースが入っています
+	CashFlow – キャッシュフォロー周りのビジネスロジックを実装したクラス・インタフェースが入っています
+	Customer – 顧客周りのビジネスロジックを実装したクラス・インタフェースが入っています
+	Exporter – レポートを出力するクラスが入っています
+	Interop – Microsoftが提供しているOffice COMライブラリを使ったクラスが入っています
+	Localization – ローカライズ機能を提供するクラスが入っています
+	RedemptionSchedule – 償還予定キャッシュフロー周りのビジネスロジックを実装したクラス・インタフェースが入っています
+	償還予定キャッシュフローを出力するデータ構造及び出力の仕方を実装したクラスが入っています
+	RedemptionTrade – 直近の償還予定周りのビジネスロジックを実装したクラス・インタフェースが入っています
+	直近の償還予定を出力するデータ構造及び出力の仕方を実装したクラスが入っています
+	Utils – Domain層用のhelperクラスが入っています
+	Presentation – UI周りのロジックを実装したクラスが入っています。Domain層に依存しています
+	Resources – アプリケーションが使っているリソース（画像、テキストなど）が入っています
+	Media – 画像ファイルが入っています
+	Themes – アプリケーションのテーマ定義ファイルが入っています
+	Services – Presentation層に使う共通機能のクラスが入っています
+	UserControls – カスタマイズしたUIコントロールが入っています
+	Utils – Presentation層用のhelperクラスが入っています
+	ViewModels – UIのコントロールロジックを実装したview modelが入っています
+	Views – 画面の定義及び見た目だけを影響するロジックが入っています
