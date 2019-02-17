@@ -1,0 +1,30 @@
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            var dt = new DataTable();
+            dt.Columns.Add("EmployeeID");
+            dt.Columns.Add("Name");
+
+            for (var i = 1; i < 1000000; i++)
+                dt.Rows.Add(i + 1, "Name " + (i + 1).ToString());
+            string _connectionString =
+                "Data Source=(localdb)\\MSSQLLOCALDB;Initial Catalog=FriendOrganizer;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                //
+                // Open the SqlConnection.
+                //
+                con.Open();
+                string s = "Truncate Table Employees";
+                SqlCommand Com = new SqlCommand(s, con);
+                Com.ExecuteNonQuery();
+
+            }
+            using (var sqlBulk = new SqlBulkCopy(_connectionString))
+            {
+                sqlBulk.DestinationTableName = "Employees";
+                sqlBulk.WriteToServer(dt);
+            }
+        }
+    }
