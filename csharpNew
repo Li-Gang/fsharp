@@ -1,0 +1,3 @@
+            AttrConditionSet attrConditionSet = new AttrConditionSet();
+           　attrConditionSet.entityArray = new AttrConditionEntity[1];
+            attrConditionSet.entityArray[0] = new AttrConditionEntity();
