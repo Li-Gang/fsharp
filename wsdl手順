@@ -1,0 +1,7 @@
+Web Service手順
+１．	WSDLは必要になります。
+２．	Add Service Reference 一画面　Advanced
+2番目の画面Add Web Reference
+3番目の画面WSDLを入力
+
+右側で作成されたWeb reference nameをusing projectname.webreferencename
